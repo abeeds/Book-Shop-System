@@ -12,9 +12,9 @@
 // need to create implementations for headers
 
 #include "shop.h"
-#include "book.h"
 #include <string>
 
 int main() {
-    std::cout << "hello world" << std::endl;
+    BookShop::Shop Lib;
+    Lib.addBook();
 }
