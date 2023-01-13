@@ -17,4 +17,6 @@
 int main() {
     BookShop::Shop Lib;
     Lib.addBook();
+    Lib.addBook();
+    Lib.printLibrary();
 }

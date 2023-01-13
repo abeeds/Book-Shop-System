@@ -16,7 +16,7 @@ namespace BookShop {
             // destructor
 
             // adds a book to the library
-            void addBook();
+            void addBook(); //
 
             // allows for a user to purchase a book
             bool buyBook();

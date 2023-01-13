@@ -11,10 +11,18 @@ namespace BookShop {
         std::string title;
 
         std::cout << "Please enter the title of the book: ";
-        std::cin >> title;
+        std::getline(std::cin, title);
         numOfBooks += 1;
         LIBRARY[numOfBooks] = title;
-        std::cout << "\nBook has been entered with the ID " << numOfBooks << ".\n";
+        std::cout << "\n'" << title << "' has been entered with the ID " << numOfBooks << ".\n\n";
 
     }// bool addBook()
+
+    void Shop::printLibrary() {
+        std::cout << "----------------------\n";
+        std::cout << "ID       Title\n\n";
+        for (auto i : LIBRARY) {
+            std::cout << i.first << "       " << i.second << std::endl;
+        }
+    }
 }
