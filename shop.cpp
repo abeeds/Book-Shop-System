@@ -3,10 +3,8 @@
 namespace BookShop {
     Shop::Shop() {
         numOfBooks = 0;
-    }
+    }// Shop()
 
-    // the ID's for each book are assigned by the system
-    // only accessible by employee
     void Shop::addBook() {
         std::string title;
 
@@ -24,5 +22,6 @@ namespace BookShop {
         for (auto i : LIBRARY) {
             std::cout << i.first << "       " << i.second << std::endl;
         }
-    }
+        std::cout << std::endl;
+    }// void printLibrary()
 }
