@@ -1,22 +1,21 @@
 #include <iostream>
-
-// Objectives
-
-// Add Books to library
-// Allow them to be taken out
-// have employees and salaries
-// run code by user input
-// Log in system for employees
-// guest mode for customers
-
-// need to create implementations for headers
-
 #include "shop.h"
-#include <string>
+#include "stdlib.h"
+#include "book.h"
+#include <algorithm>
+
+/*
+To Do:
+    Save data as txt files
+    Check for save data
+    confirmation on addBook
+    Entire Shop class
+*/
+
 
 int main() {
-    BookShop::Shop Lib;
-    Lib.addBook();
-    Lib.addBook();
-    Lib.printLibrary();
+    Book test("The Dog", "John Wick", 4, 19.99);
+    test.addBook();
+    test.purchaseBook();
+    test.display();
 }
