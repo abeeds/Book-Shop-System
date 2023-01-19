@@ -25,10 +25,10 @@ public:
     void run(); // Will run this program.
 private:
     std::unordered_map<int, Book> Library; // the int is the ID
-    std::unordered_map<std::string, std::string> Employees;
+    std::unordered_map<std::string, std::string> Employees; // username, password
     int quantity;   // amount of unique books
     int revenue;    // money made
-    std::string cur_mode;
+    std::string cur_mode; // employee or guest
 
 };
 
