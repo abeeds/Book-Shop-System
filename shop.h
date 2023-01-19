@@ -1,44 +1,35 @@
 #ifndef SHOP_H
 #define SHOP_H
 
-#include <iostream>
 #include <string>
-#include <vector>
 #include <unordered_map>
+#include <iostream>
+#include "book.h"
 
+class Book;
 
-namespace BookShop {
-    
-    class Shop{
-        public:
-            // constructor
-            Shop();
-            // destructor
+class Shop {
+public:
+    void addBook(); // employee can add copies of a book.
+    void updateBook(); //  update prices/quantities
 
+    void login(); // enter as employee or guest
 
+    void purchaseBook(); 
 
-            // allows for a user to purchase a book
-            bool buyBook();
+    void printLibrary(); // displays books available and corresponding data
 
-            // prints books available
-            void printLibrary(); //
+    void saveData(); // saves information to a text file
+    void retrieveData(); // checks for existing save data
 
-            // employee system
-            bool login();
-            
-            // adds a book to the library
-            void addBook(); //
+    void run(); // Will run this program.
+private:
+    std::unordered_map<int, Book> Library; // the int is the ID
+    std::unordered_map<std::string, std::string> Employees;
+    int quantity;   // amount of unique books
+    int revenue;    // money made
+    std::string cur_mode;
 
-        private:
-            // the int is the ID and the string is the title of the book
-            std::unordered_map<int, std::string> LIBRARY;
-
-            // 1st string is username
-            // vector contains 2 strings, password and employee type (admin/regular)
-            // admins will be allowed to hire/fire 
-            std::unordered_map<std::string, std::vector<std::string>> EMPLOYEE_LOGIN;
-            int numOfBooks;
-    };
-}
+};
 
 #endif
