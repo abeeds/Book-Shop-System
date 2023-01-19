@@ -12,6 +12,7 @@ Book::Book(std::string Name, std::string Author, int Quantity, double Price)
 {}
 
 
+
 void Book::addBook( ) {
     int amt_of_copies;
     std::string user_inp;
@@ -37,6 +38,38 @@ void Book::addBook( ) {
     
     
     
+}
+
+void Book::updateQuantity() {
+    int updated_quantity;
+    std::cout << "Please enter the new quantity of " << name << " by " << author << ": ";
+    std::cin >> updated_quantity;
+
+    while(updated_quantity < 0) {
+        std::cout << "\nPlease enter a valid quantity (integer >= 0): ";
+        std::cin >> updated_quantity;
+    }
+
+    quantity = updated_quantity;
+    std::cout << "\nQuantity of " << name << " by " << author << "has been set to " << quantity << std::endl;
+}
+
+void Book::updatePrice() {
+    double updated_price;
+    std::cout << "Please enter the new price of " << name << " by " << author << ": ";
+    std::cin >> updated_price;
+
+    while(updated_price < 0) {
+        std::cout << "\nPlease enter a valid price (decimal >= 0): ";
+        std::cin >> updated_price;
+    }
+
+    price = updated_price;
+    std::cout << "\nPrice of " << name << " by " << author << "has been set to " << price << std::endl;
+}
+
+bool Book::isAvailable() {
+    return(quantity > 0);
 }
 
 double Book::purchaseBook() {
