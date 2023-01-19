@@ -14,7 +14,12 @@ class Book {
         
 
         // increases quantity of book
+        // any employee can use this function
         void addBook();
+
+        // Incase of mistaken entries
+        // Manager only
+        void updateQuantity();
         
         // allows for book to be sold if there are enough copies.
         // returns money made
@@ -22,7 +27,7 @@ class Book {
 
         // Prints in the following format
         // Name     Author     Quantity_Available     Price
-        void display();
+        void display(); //
     private:
         std::string name;
         std::string author;
