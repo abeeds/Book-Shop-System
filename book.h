@@ -14,16 +14,21 @@ class Book {
         
 
         // increases quantity of book
-        // any employee can use this function
         void addBook();
 
         // Incase of mistaken entries
-        // Manager only
         void updateQuantity();
+
+        // true if quantity > 0
+        bool isAvailable();
+
+        // Change price
+        void updatePrice();
         
         // allows for book to be sold if there are enough copies.
         // returns money made
         double purchaseBook();
+        
 
         // Prints in the following format
         // Name     Author     Quantity_Available     Price
