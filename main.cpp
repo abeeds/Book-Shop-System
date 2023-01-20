@@ -3,19 +3,19 @@
 #include "stdlib.h"
 #include "book.h"
 #include <algorithm>
+using namespace std;
 
 /*
 To Do:
     Save data as txt files
     Check for save data
-    confirmation on addBook
+    make sure update____ checks that value entered is string/double
     Entire Shop class
+    Employee class -> manager and regular types
 */
 
 
 int main() {
-    Book test("The Dog", "John Wick", 4, 19.99);
-    test.addBook();
-    test.purchaseBook();
-    test.display();
+    Shop BookShop;
+    BookShop.run();
 }
