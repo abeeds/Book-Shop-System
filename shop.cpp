@@ -6,7 +6,7 @@ int Shop::login() {
     std::string user_inp;
     std::string username;
     std::string password;
-    int mode; //1 for customer, 2 for employee
+    int login_type; //1 for customer, 2 for employee
 
     std::cout << "Would you like to log-in or continue as a guest?\n\n";
     std::cout << "Please type 1, 2, or 3 to make a selection: \n";
@@ -17,7 +17,7 @@ int Shop::login() {
 
     // will end the program.
     if (username == "exit") {
-        return 4;
+        exit();
     }
 
     // register as account
@@ -70,17 +70,17 @@ int Shop::login() {
         //valid username found
         //identify if username is associated with employee or customer type account 
         if(Employees.find(username) != Employees.end()) {
-            mode = 2;
+            login_type = 2;
         }
         else { // continuing as customer
-            mode = 1;
+            login_type = 1;
         }
 
         
         std::cout << "\n\nPlease enter your password: ";
         std::getline(std::cin, password);
 
-        if(mode == 2) {
+        if(login_type == 2) {
             while(Employees[username] != password) {
                 std::cout << "\n\nSorry, the password you have entered is not associated with the username.\nPlease try again: ";
                 std::getline(std::cin, password);
@@ -94,7 +94,7 @@ int Shop::login() {
             return 3;
         } 
 
-        if(mode == 1) {
+        if(login_type == 1) {
             while(Customers[username] != password) {
                 std::cout << "\n\nSorry, the password you have entered is not associated with the username.\nPlease try again: ";
                 std::getline(std::cin, password);
@@ -120,6 +120,7 @@ int Shop::login() {
 }
 
 // for employees
+// will print everything even if the book is unavailable
 void Shop::adminDisplay() {
     std::cout << "Displaying all books in the catalogue\n\n";
     std::cout << "ID     Name     Author     Quantity     Price\n";
@@ -146,3 +147,33 @@ void Shop::printLibrary() {
     }
 }
 
+
+
+void Shop::run() {
+    std::cout << "Welcome to the Bookshop!\n";
+
+    int mode;
+    mode = login();
+    //  mode values: 
+    // 0: exit has been entered during login -> call this function again
+    // 1: logging in as guest
+    // 2: logging in as customer
+    // 3: logging in as employee
+    // 4: shut down 
+
+    // restart if mistake is made during login
+    while(mode == 0) {
+        mode = login();
+    }
+
+    if(mode == 4) {
+        exit();
+    }
+
+
+
+}
+
+void Shop::exit() {
+    std::cout << "\n\n\nShutting down..."; 
+}
